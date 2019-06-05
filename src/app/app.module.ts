@@ -1,18 +1,25 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { SearchComponent } from './search/search.component';
+import { CityComponent } from './city/city.component';
+import { AutocompleteService } from './autocomplete.service';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SearchComponent,
+    CityComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [AutocompleteService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
