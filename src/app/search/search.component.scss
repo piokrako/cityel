@@ -10,7 +10,28 @@
 
   &:hover {
     cursor: pointer;
-    background: rgba(0,43,255,0.1);
+    background: rgba(102, 105, 121, 0.1);
     transition: all 200ms ease-in-out; 
   }
+  
+  &__autocomplete {
+      display: none;
+      width: 100%;
+      margin-top: -2px;
+      color: #fff;
+
+     &-item {
+      width: 100%;
+      padding: 7px 15px;
+      border-right: 2px solid #eee;
+      border-bottom: 2px solid #eee;
+      border-left: 2px solid #eee;
+
+      &:hover {
+        background-color: rgba(0,43,255,0.4);
+      }
+    }
+
+  }
+
 }
