@@ -1,2 +1,15 @@
-<input #searchInput class="cit-search" type="text" placeholder="Enter city name eg. London..." (keyup)="autocomplete(searchInput.value)" >
+<input
+  [(ngModel)]="inputValue"
+  class="cit-search"
+  type="text"
+  placeholder="Enter city name eg. London..."
+  (keyup)="autocomplete(inputValue)"
+  required
+  #inputModel="ngModel"
+/>
+<ul *ngIf="results != null" class="cit-search__results">
+  <li *ngFor="let result of results.suggestions">
+    <a href="" [innerHTML]="result.label"></a>
+  </li>
+</ul>
 <button class="cit-button--primary" type="submit">Go</button>
