@@ -1,2 +1,21 @@
-<input #searchInput class="cit-search" type="text" placeholder="Enter city name eg. London..." (keypress)="autocomplete(searchInput.value)" >
-<button class="cit-button--primary" type="submit">Go</button>
+<div class="cit-search">
+  <input
+    [(ngModel)]="inputValue"
+    class="cit-search__input"
+    type="text"
+    placeholder="Enter city name eg. London..."
+    (keyup)="autocomplete(inputValue)"
+    required
+    #inputModel="ngModel"
+  />
+  <ul *ngIf="results != null" class="cit-search__list">
+    <li
+      *ngFor="let result of results.suggestions"
+      class="cit-search__list-item"
+      [routerLink]="[ result.address.country ]" [queryParams]="{ city: result.address.city, id: result.locationId}" 
+    >
+      {{result.label}}
+    </li>
+  </ul>
+</div>
+<button class="cit-button--primary" [routerLink]="['/city', inputValue]" type="submit">Go</button>

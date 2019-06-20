@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component } from "@angular/core";
 import { AutocompleteService } from "../autocomplete.service";
 
 @Component({
@@ -7,10 +7,17 @@ import { AutocompleteService } from "../autocomplete.service";
   styleUrls: ["./search.component.scss"],
   providers: [AutocompleteService]
 })
-export class SearchComponent implements OnInit {
+
+export class SearchComponent{
+  inputValue: string = null;
+  results;
+
   constructor(private autocompleteService: AutocompleteService) {}
+
   autocomplete(text:string) {
     this.autocompleteService.autocompleteCityName(text.toString());
+    this.results = this.autocompleteService.data;
+    console.warn(this.results);
   }
-  ngOnInit() {}
+
 }
