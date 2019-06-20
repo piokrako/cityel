@@ -14,7 +14,7 @@ export class AutocompleteService {
     console.warn(cityQuery);
     this.http
       .get(
-        `http://autocomplete.geocoder.api.here.com/6.2/suggest.json?app_id=c7tXTQyIcMgn4ZXfMFIC&app_code=Jcu8MaYBd1Gg8721U7VK0g&query=${cityQuery}`
+        `http://autocomplete.geocoder.api.here.com/6.2/suggest.json?app_id=c7tXTQyIcMgn4ZXfMFIC&app_code=Jcu8MaYBd1Gg8721U7VK0g&resultType=areas&&query=${cityQuery}`
       )
       .subscribe(
         (json: ApiResponse) => {
