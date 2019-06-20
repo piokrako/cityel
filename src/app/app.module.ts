@@ -8,12 +8,14 @@ import { AppComponent } from './app.component';
 import { SearchComponent } from './search/search.component';
 import { CityComponent } from './city/city.component';
 import { AutocompleteService } from './autocomplete.service';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SearchComponent,
-    CityComponent
+    CityComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
