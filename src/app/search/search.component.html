@@ -12,9 +12,9 @@
     <li
       *ngFor="let result of results.suggestions"
       class="cit-search__list-item"
-      [routerLink]="[ result.address.country ]" [queryParams]="{ city: result.address.city, id: result.locationId}" 
+      [routerLink]="[ result.address.country ]" [queryParams]="{ city: result.terms.value, id: result.id}" 
     >
-      {{result.label}}
+      {{result.description}}
     </li>
   </ul>
 </div>

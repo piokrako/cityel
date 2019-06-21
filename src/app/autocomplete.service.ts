@@ -13,16 +13,16 @@ export class AutocompleteService {
   public autocompleteCityName(cityQuery: string) {
     console.warn(cityQuery);
     this.http
-      .get(
-        `http://autocomplete.geocoder.api.here.com/6.2/suggest.json?app_id=c7tXTQyIcMgn4ZXfMFIC&app_code=Jcu8MaYBd1Gg8721U7VK0g&resultType=areas&&query=${cityQuery}`
+      .get(`https://maps.googleapis.com/maps/api/place/autocomplete/json?input=${cityQuery}&types=geocode&key=AIzaSyDpffa8C0ugDz1SIYiosECbb-VaTYEoXoA`
       )
       .subscribe(
         (json: ApiResponse) => {
           this.data = json;
+          console.warn(json);
         },
         err => {
           console.warn(err);
-          alert("Serwer nie działa.");
+          alert("Server error. Please try again in a few minutes.");
         }
       );
   }
